@@ -3,7 +3,7 @@ import Link from 'next/link'
  
 export default function NotFound() {
   return (
-    <div className='flex flex-col items-center  min-h-screen text-center'>
+    <div className='flex flex-col items-center relative z-10 min-h-screen text-center'>
       <Image width={600} height={360} src="/404_NotFound.png" alt="Not Found" className='max-w-full mt-5 mb-6' />
       <p className='text-xl font-semibold'>
         Kiếm gì ở đâyy ⁉️ <br />
