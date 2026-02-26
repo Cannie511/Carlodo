@@ -7,7 +7,7 @@ import { Plus } from 'lucide-react'
 import React, { useState } from 'react'
 import { toast } from 'sonner'
 
-const AddTask = ({handleNewTaskAdded}) => {
+const AddTask = ({handleNewTaskAdded}: {handleNewTaskAdded: any}) => {
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const addTask = async() => {
     if(newTaskTitle.trim() === '') {
@@ -25,7 +25,7 @@ const AddTask = ({handleNewTaskAdded}) => {
     }
   }
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: any) => {
     if (event.key === 'Enter') {
       addTask();
     }

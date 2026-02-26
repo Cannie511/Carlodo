@@ -7,8 +7,8 @@ import React from 'react'
 interface StatsAndFilterProps {
     completeTasksCount?: number;
     activeTasksCount?: number;
-    filter?: "all" | "active" | "complete";
-    setFilter?: (filter: "all" | "active" | "complete") => void;
+    filter?: string;
+    setFilter: (filter: "all" | "active" | "complete") => void | undefined;
 }
 const StatsAndFilter = ({ completeTasksCount = 0, activeTasksCount = 0, filter = "all", setFilter }: StatsAndFilterProps) => {
   return (
@@ -28,7 +28,7 @@ const StatsAndFilter = ({ completeTasksCount = 0, activeTasksCount = 0, filter =
             {
                 Object.keys(FilterType).map((key) => (
                     <Button key={key} variant={filter === key ? 'gradient' : 'ghost'} size={'sm'} className='capitalize cursor-pointer'
-                    onClick={()=>setFilter(key)}  >
+                    onClick={()=>setFilter?.(key as any)}  >
                         <Filter className='size-4'/>
                         {FilterType[key as keyof typeof FilterType]}
                     </Button>

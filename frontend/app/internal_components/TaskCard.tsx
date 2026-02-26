@@ -15,7 +15,7 @@ interface TaskCardProps {
 const TaskCard = ({task, index, handleTaskChanged}: TaskCardProps) => {
     const [isEditting, setIsEditting] = useState(false);
     const [updatedTaskTitle, setUpdatedTaskTitle] = useState(task.title || "");
-    const deleteTask = async(taskId) => {
+    const deleteTask = async(taskId:any) => {
         try {
             await api.delete(`/tasks/${taskId}`);
             toast.success('Đã xóa 1 việc!');
@@ -25,9 +25,9 @@ const TaskCard = ({task, index, handleTaskChanged}: TaskCardProps) => {
             console.log("Lỗi xảy ra khi xóa nhiệm vụ:", error);
         }
     }
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event:any) => {
         if (event.key === 'Enter') {
-        updateTask();
+            updateTask();
         }
     }
     const toggleTaskComplete = async() => {
